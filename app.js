@@ -1,14 +1,13 @@
 const form = document.querySelector('form');
 const input = document.querySelector('form input');
-const tasks = document.querySelector('#tasks')
-const count = document.querySelector('#count')
-
+const tasks = document.querySelector('#tasks');
+const count = document.querySelector('#count');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  if (input.value === "") {
-    return alert("You haven't add any task")
-  };
+  if (input.value === '') {
+    return alert("You haven't add any task");
+  }
   addTask(input.value);
   input.value = '';
   count.innerText = tasks.children.length;
@@ -17,7 +16,7 @@ form.addEventListener('submit', (event) => {
 // create a new task
 addTask = (task) => {
   const toDo = document.createElement('div');
-  toDo.classList = "status"
+  toDo.classList = 'status';
   toDo.innerText = task;
   toDo.addEventListener('click', toggleStatus);
   toDo.addEventListener('dblclick', (event) => {
@@ -30,10 +29,10 @@ addTask = (task) => {
 toggleStatus = (event) => {
   const task = event.target;
   if (task.classList.contains('completed')) {
-    task.classList = "status";
+    task.classList = 'status';
   } else {
-    task.classList = "status completed";
-  };
+    task.classList = 'status completed';
+  }
 };
 
 updateCount = () => {
